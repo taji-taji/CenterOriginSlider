@@ -11,35 +11,35 @@ import UIKit
 @IBDesignable
 public class CenterOriginSlider: UISlider {
     
-    @IBInspectable var minimumTrackBackgroudColor: UIColor = .lightGray {
+    @IBInspectable public var minimumTrackBackgroudColor: UIColor = .lightGray {
         didSet {
             prepareMinimumTrackImage()
             setMinimumTrackImage()
         }
     }
     
-    @IBInspectable var minimumTrackForegroudColor: UIColor = .black {
+    @IBInspectable public var minimumTrackForegroudColor: UIColor = .black {
         didSet {
             prepareMinimumTrackImage()
             setMinimumTrackImage()
         }
     }
     
-    @IBInspectable var maximumTrackBackgroudColor: UIColor = .lightGray {
+    @IBInspectable public var maximumTrackBackgroudColor: UIColor = .lightGray {
         didSet {
             prepareMaximumTrackImage()
             setMaximumTrackImage()
         }
     }
     
-    @IBInspectable var maximumTrackForegroudColor: UIColor = .black {
+    @IBInspectable public var maximumTrackForegroudColor: UIColor = .black {
         didSet {
             prepareMaximumTrackImage()
             setMaximumTrackImage()
         }
     }
     
-    @IBInspectable var trackHeight: CGFloat = 1.5 {
+    @IBInspectable public var trackHeight: CGFloat = 1.5 {
         didSet {
             prepareTrackImage()
             setTrackImage()
