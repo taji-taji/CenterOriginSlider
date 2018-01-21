@@ -10,6 +10,7 @@
 		0E4FE0E32014BC6400E9DB1B /* CenterOriginSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E4FE0D92014BC6300E9DB1B /* CenterOriginSlider.framework */; };
 		0E4FE0E82014BC6400E9DB1B /* CenterOriginSliderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4FE0E72014BC6400E9DB1B /* CenterOriginSliderTests.swift */; };
 		0E4FE0EA2014BC6400E9DB1B /* CenterOriginSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E4FE0DC2014BC6300E9DB1B /* CenterOriginSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E4FE0F42014BC7400E9DB1B /* CenterOriginSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4FE0F32014BC7400E9DB1B /* CenterOriginSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		0E4FE0E22014BC6400E9DB1B /* CenterOriginSliderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CenterOriginSliderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E4FE0E72014BC6400E9DB1B /* CenterOriginSliderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterOriginSliderTests.swift; sourceTree = "<group>"; };
 		0E4FE0E92014BC6400E9DB1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E4FE0F32014BC7400E9DB1B /* CenterOriginSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterOriginSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				0E4FE0DC2014BC6300E9DB1B /* CenterOriginSlider.h */,
+				0E4FE0F32014BC7400E9DB1B /* CenterOriginSlider.swift */,
 				0E4FE0DD2014BC6400E9DB1B /* Info.plist */,
 			);
 			path = CenterOriginSlider;
@@ -148,6 +151,7 @@
 				TargetAttributes = {
 					0E4FE0D82014BC6300E9DB1B = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					0E4FE0E12014BC6400E9DB1B = {
@@ -196,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E4FE0F42014BC7400E9DB1B /* CenterOriginSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +339,7 @@
 		0E4FE0EE2014BC6400E9DB1B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -343,10 +349,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = CenterOriginSlider/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.engideer.CenterOriginSlider;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -355,6 +363,7 @@
 		0E4FE0EF2014BC6400E9DB1B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -364,6 +373,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = CenterOriginSlider/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.engideer.CenterOriginSlider;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -376,6 +386,7 @@
 		0E4FE0F12014BC6400E9DB1B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R5U4C8KFRC;
 				INFOPLIST_FILE = CenterOriginSliderTests/Info.plist;
@@ -390,6 +401,7 @@
 		0E4FE0F22014BC6400E9DB1B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R5U4C8KFRC;
 				INFOPLIST_FILE = CenterOriginSliderTests/Info.plist;
