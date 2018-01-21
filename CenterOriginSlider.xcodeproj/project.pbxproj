@@ -11,6 +11,7 @@
 		0E4FE0E82014BC6400E9DB1B /* CenterOriginSliderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4FE0E72014BC6400E9DB1B /* CenterOriginSliderTests.swift */; };
 		0E4FE0EA2014BC6400E9DB1B /* CenterOriginSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E4FE0DC2014BC6300E9DB1B /* CenterOriginSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E4FE0F42014BC7400E9DB1B /* CenterOriginSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4FE0F32014BC7400E9DB1B /* CenterOriginSlider.swift */; };
+		0E4FE0FA2014C31300E9DB1B /* CenterOriginSlider.swift in Headers */ = {isa = PBXBuildFile; fileRef = 0E4FE0F32014BC7400E9DB1B /* CenterOriginSlider.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E4FE0EA2014BC6400E9DB1B /* CenterOriginSlider.h in Headers */,
+				0E4FE0FA2014C31300E9DB1B /* CenterOriginSlider.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
