@@ -15,6 +15,9 @@ This slider can set track color between center point and track thumb image.
   - `@IBDesignable`
   - `@IBInspectable`
 
+![1](https://raw.githubusercontent.com/taji-taji/CenterOriginSlider/master/Resources/images/1.png "1")  
+![2](https://raw.githubusercontent.com/taji-taji/CenterOriginSlider/master/Resources/images/2.png "2")
+
 # Properties
 
 ## minimumTrackBackgroundColor, minimumTrackForegroundColor
