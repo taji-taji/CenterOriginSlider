@@ -68,7 +68,7 @@ public class CenterOriginSlider: UISlider {
         }
     }()
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         self.comminInit()
     }
@@ -76,6 +76,12 @@ public class CenterOriginSlider: UISlider {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.comminInit()
+    }
+    
+    public override func prepareForInterfaceBuilder() {
+        prepareMinimumTrackImage()
+        prepareMaximumTrackImage()
+        setTrackImage()
     }
     
     fileprivate func comminInit() {
