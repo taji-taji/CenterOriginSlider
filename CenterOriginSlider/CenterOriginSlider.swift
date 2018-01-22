@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-public class CenterOriginSlider: UISlider {
+open class CenterOriginSlider: UISlider {
     
     @IBInspectable public var minimumTrackBackgroudColor: UIColor = .lightGray {
         didSet {
@@ -46,8 +46,8 @@ public class CenterOriginSlider: UISlider {
         }
     }
     
-    override public var bounds: CGRect {
-        didSet {
+    override open var bounds: CGRect {
+        willSet {
             prepareTrackImage()
             setTrackImage()
         }
@@ -78,7 +78,7 @@ public class CenterOriginSlider: UISlider {
         self.comminInit()
     }
     
-    public override func prepareForInterfaceBuilder() {
+    open override func prepareForInterfaceBuilder() {
         prepareMinimumTrackImage()
         prepareMaximumTrackImage()
         setTrackImage()
@@ -88,7 +88,7 @@ public class CenterOriginSlider: UISlider {
         self.addTarget(self, action: #selector(CenterOriginSlider.valueChanged), for: .valueChanged)
     }
     
-    override public func draw(_ rect: CGRect) {
+    override open func draw(_ rect: CGRect) {
         super.draw(rect)
         prepareMinimumTrackImage()
         prepareMaximumTrackImage()
