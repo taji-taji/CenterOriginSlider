@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable
 open class CenterOriginSlider: UISlider {
     
-    @IBInspectable public var minimumTrackBackgroudColor: UIColor = .lightGray {
+    @IBInspectable public var minimumTrackBackgroundColor: UIColor = .lightGray {
         didSet {
             prepareMinimumTrackImage()
             setMinimumTrackImage()
@@ -25,7 +25,7 @@ open class CenterOriginSlider: UISlider {
         }
     }
     
-    @IBInspectable public var maximumTrackBackgroudColor: UIColor = .lightGray {
+    @IBInspectable public var maximumTrackBackgroundColor: UIColor = .lightGray {
         didSet {
             prepareMaximumTrackImage()
             setMaximumTrackImage()
@@ -54,8 +54,8 @@ open class CenterOriginSlider: UISlider {
     }
     
     private var centerValue: Float { return (minimumValue + maximumValue) / 2 }
-    private var minimumBackgroudImage = UIImage()
-    private var maximumBackgroudImage = UIImage()
+    private var minimumBackgroundImage = UIImage()
+    private var maximumBackgroundImage = UIImage()
     private var minimumTrackStretchableImage = UIImage()
     private var maximumTrackStretchableImage = UIImage()
     private var feedbackGenerator: Any? = {
@@ -101,17 +101,17 @@ open class CenterOriginSlider: UISlider {
     }
     
     private func prepareMinimumTrackImage() {
-        minimumBackgroudImage = UIImage.filled(with: minimumTrackBackgroudColor, size: CGSize(width: (self.frame.size.width / 2 - alignmentRectInsets.left), height: trackHeight))
+        minimumBackgroundImage = UIImage.filled(with: minimumTrackBackgroundColor, size: CGSize(width: (self.frame.size.width / 2 - alignmentRectInsets.left), height: trackHeight))
         let minimumForegroundImage = UIImage.filled(with: minimumTrackForegroudColor, size: CGSize(width: 3, height: trackHeight))
-        let compositeImage = minimumBackgroudImage.composite(otherImage: minimumForegroundImage, size: CGSize(width: minimumBackgroudImage.size.width + minimumForegroundImage.size.width, height: trackHeight), position: CGPoint(x: minimumBackgroudImage.size.width, y: 0))
-        minimumTrackStretchableImage = compositeImage.resizableImage(withCapInsets: UIEdgeInsetsMake(0, minimumBackgroudImage.size.width + 1, 0, 1), resizingMode: .tile)
+        let compositeImage = minimumBackgroundImage.composite(otherImage: minimumForegroundImage, size: CGSize(width: minimumBackgroundImage.size.width + minimumForegroundImage.size.width, height: trackHeight), position: CGPoint(x: minimumBackgroundImage.size.width, y: 0))
+        minimumTrackStretchableImage = compositeImage.resizableImage(withCapInsets: UIEdgeInsetsMake(0, minimumBackgroundImage.size.width + 1, 0, 1), resizingMode: .tile)
     }
     
     private func prepareMaximumTrackImage() {
-        maximumBackgroudImage = UIImage.filled(with: maximumTrackBackgroudColor, size: CGSize(width: (self.frame.size.width / 2 - alignmentRectInsets.right), height: trackHeight))
+        maximumBackgroundImage = UIImage.filled(with: maximumTrackBackgroundColor, size: CGSize(width: (self.frame.size.width / 2 - alignmentRectInsets.right), height: trackHeight))
         let maximumForegroundImage = UIImage.filled(with: maximumTrackForegroudColor, size: CGSize(width: 3, height: trackHeight))
-        let compositeImage = maximumForegroundImage.composite(otherImage: maximumBackgroudImage, size: CGSize(width: maximumBackgroudImage.size.width + maximumForegroundImage.size.width, height: trackHeight), position: CGPoint(x: maximumForegroundImage.size.width, y: 0))
-        maximumTrackStretchableImage = compositeImage.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 1, 0, maximumBackgroudImage.size.width + 1), resizingMode: .tile)
+        let compositeImage = maximumForegroundImage.composite(otherImage: maximumBackgroundImage, size: CGSize(width: maximumBackgroundImage.size.width + maximumForegroundImage.size.width, height: trackHeight), position: CGPoint(x: maximumForegroundImage.size.width, y: 0))
+        maximumTrackStretchableImage = compositeImage.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 1, 0, maximumBackgroundImage.size.width + 1), resizingMode: .tile)
     }
     
     @objc private func valueChanged() {
@@ -130,7 +130,7 @@ open class CenterOriginSlider: UISlider {
     
     private func setMinimumTrackImage() {
         if self.value <= centerValue {
-            self.setMinimumTrackImage(minimumBackgroudImage, for: .normal)
+            self.setMinimumTrackImage(minimumBackgroundImage, for: .normal)
         } else {
             self.setMinimumTrackImage(minimumTrackStretchableImage, for: .normal)
         }
@@ -140,7 +140,7 @@ open class CenterOriginSlider: UISlider {
         if self.value <= centerValue {
             self.setMaximumTrackImage(maximumTrackStretchableImage, for: .normal)
         } else {
-            self.setMaximumTrackImage(maximumBackgroudImage, for: .normal)
+            self.setMaximumTrackImage(maximumBackgroundImage, for: .normal)
         }
     }
     
