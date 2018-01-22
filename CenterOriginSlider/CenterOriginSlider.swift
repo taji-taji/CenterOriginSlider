@@ -11,43 +11,45 @@ import UIKit
 @IBDesignable
 open class CenterOriginSlider: UISlider {
     
-    @IBInspectable public var minimumTrackBackgroundColor: UIColor = .lightGray {
+    @IBInspectable open var minimumTrackBackgroundColor: UIColor = .lightGray {
         didSet {
             prepareMinimumTrackImage()
             setMinimumTrackImage()
         }
     }
     
-    @IBInspectable public var minimumTrackForegroudColor: UIColor = .black {
+    @IBInspectable open var minimumTrackForegroudColor: UIColor = .black {
         didSet {
             prepareMinimumTrackImage()
             setMinimumTrackImage()
         }
     }
     
-    @IBInspectable public var maximumTrackBackgroundColor: UIColor = .lightGray {
+    @IBInspectable open var maximumTrackBackgroundColor: UIColor = .lightGray {
         didSet {
             prepareMaximumTrackImage()
             setMaximumTrackImage()
         }
     }
     
-    @IBInspectable public var maximumTrackForegroudColor: UIColor = .black {
+    @IBInspectable open var maximumTrackForegroudColor: UIColor = .black {
         didSet {
             prepareMaximumTrackImage()
             setMaximumTrackImage()
         }
     }
     
-    @IBInspectable public var trackHeight: CGFloat = 1.5 {
+    @IBInspectable open var trackHeight: CGFloat = 1.5 {
         didSet {
             prepareTrackImage()
             setTrackImage()
         }
     }
     
+    open var isCenterFeedbackEnabled: Bool = true
+    
     override open var bounds: CGRect {
-        willSet {
+        didSet {
             prepareTrackImage()
             setTrackImage()
         }
@@ -117,7 +119,7 @@ open class CenterOriginSlider: UISlider {
     @objc private func valueChanged() {
         setTrackImage()
         if self.value == self.centerValue {
-            if #available(iOS 10.0, *) {
+            if #available(iOS 10.0, *), self.isCenterFeedbackEnabled {
                 (feedbackGenerator as? UIImpactFeedbackGenerator)?.impactOccurred()
             }
         }
