@@ -1,12 +1,25 @@
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](#carthage)
+![Swift version](https://img.shields.io/badge/swift-4.0-orange.svg)
+
 # About CenterOriginSlider
 
 This is the subclass of UISlider.  
 This slider can set track color between center point and track thumb image.
 
-# Support Version
+# Requirements
 
-- Swift4
-- iOS 9.0 (or higher)
+- Swift4.0
+- iOS 9.0+
+
+# Installation
+
+## Carthage
+
+Just add to your Cartfile:
+
+```
+github "taji-taji/CenterOriginSlider"
+```
 
 # Features
 
@@ -19,56 +32,56 @@ This slider can set track color between center point and track thumb image.
 
 ## minimumTrackBackgroundColor, minimumTrackForegroundColor
 
-The minimum track background color.  
+The minimum track color.  
 If the value is less than or equal center value, minimum track color between minimum point and track thumb image is filled with **`minimumTrackBackgroundColor `**.  
 On the other hand, if the value is greater than center value, minimum track color between minimum point and center point is filled with **`minimumTrackBackgroundColor `**.  
 And minimum track color between center point and track thumb image is filled with **`minimumTrackForegroundColor `**.
 
-### minimumTrackBackgroundColor
+## minimumTrackBackgroundColor
 
 ```swift
-@IBInspectable public var minimumTrackBackgroundColor: UIColor
+@IBInspectable open var minimumTrackBackgroundColor: UIColor
 ```
 
-#### default
+### default
 
 `UIColor.lightGray`
 
-### minimumTrackForegroundColor
+## minimumTrackForegroundColor
 
 ```swift
-@IBInspectable public var minimumTrackForegroundColor: UIColor
+@IBInspectable open var minimumTrackForegroundColor: UIColor
 ```
 
-#### default
+### default
 
 `UIColor.black`
 
 
 ## maximumTrackBackgroundColor, maximumTrackForegroundColor
 
-The maximum track background color.  
+The maximum track color.  
 If the value is greater than or equal center value, maximum track color between maximum point and track thumb image is filled with **`maximumTrackBackgroundColor `**.  
 On the other hand, if the value is less than center value, maximum track color between minimum point and center point is filled with **`maximumTrackBackgroundColor `**.  
 And minimum track color between center point and track thumb image is filled with **`maximumTrackForegroundColor `**.
 
-### maximumTrackBackgroundColor
+## maximumTrackBackgroundColor
 
 ```swift
-@IBInspectable public var maximumTrackBackgroundColor: UIColor
+@IBInspectable open var maximumTrackBackgroundColor: UIColor
 ```
 
-#### default
+### default
 
 `UIColor.lightGray`
 
-### maximumTrackForegroundColor
+## maximumTrackForegroundColor
 
 ```swift
-@IBInspectable public var maximumTrackForegroundColor: UIColor
+@IBInspectable open var maximumTrackForegroundColor: UIColor
 ```
 
-#### default
+### default
 
 `UIColor.black`
 
@@ -77,9 +90,25 @@ And minimum track color between center point and track thumb image is filled wit
 The height for track.
 
 ```swift
-@IBInspectable public var trackHeight: CGFloat
+@IBInspectable open var trackHeight: CGFloat
 ```
 
-#### default
+### default
 
 `1.5`
+
+## isCenterFeedbackEnabled
+
+If true, light impact feedback will occur when the value of the slider is changed to the center value.
+
+
+```swift
+open var isCenterFeedbackEnabled: Bool
+```
+
+### default
+
+`true`
+
+# License
+MIT

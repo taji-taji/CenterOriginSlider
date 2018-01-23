@@ -11,6 +11,15 @@ import UIKit
 @IBDesignable
 open class CenterOriginSlider: UISlider {
     
+    /**
+     The minimum track background color.
+    
+     If the value is less than or equal center value,
+     minimum track color between minimum point and track thumb image is filled with **`minimumTrackBackgroundColor `**.
+     On the other hand, if the value is greater than center value,
+     minimum track color between minimum point and center point is filled with **`minimumTrackBackgroundColor `**.
+     And minimum track color between center point and track thumb image is filled with **`minimumTrackForegroundColor `**.
+     */
     @IBInspectable open var minimumTrackBackgroundColor: UIColor = .lightGray {
         didSet {
             prepareMinimumTrackImage()
@@ -18,6 +27,15 @@ open class CenterOriginSlider: UISlider {
         }
     }
     
+    /**
+     The minimum track foreground color.
+     
+     If the value is less than or equal center value,
+     minimum track color between minimum point and track thumb image is filled with **`minimumTrackBackgroundColor `**.
+     On the other hand, if the value is greater than center value,
+     minimum track color between minimum point and center point is filled with **`minimumTrackBackgroundColor `**.
+     And minimum track color between center point and track thumb image is filled with **`minimumTrackForegroundColor `**.
+     */
     @IBInspectable open var minimumTrackForegroudColor: UIColor = .black {
         didSet {
             prepareMinimumTrackImage()
@@ -25,6 +43,15 @@ open class CenterOriginSlider: UISlider {
         }
     }
     
+    /**
+     The maximum track background color.
+     
+     If the value is greater than or equal center value,
+     maximum track color between maximum point and track thumb image is filled with **`maximumTrackBackgroundColor `**.
+     On the other hand, if the value is less than center value,
+     maximum track color between minimum point and center point is filled with **`maximumTrackBackgroundColor `**.
+     And minimum track color between center point and track thumb image is filled with **`maximumTrackForegroundColor `**.
+     */
     @IBInspectable open var maximumTrackBackgroundColor: UIColor = .lightGray {
         didSet {
             prepareMaximumTrackImage()
@@ -32,13 +59,23 @@ open class CenterOriginSlider: UISlider {
         }
     }
     
-    @IBInspectable open var maximumTrackForegroudColor: UIColor = .black {
+    /**
+     The maximum track foreground color.
+     
+     If the value is greater than or equal center value,
+     maximum track color between maximum point and track thumb image is filled with **`maximumTrackBackgroundColor `**.
+     On the other hand, if the value is less than center value,
+     maximum track color between minimum point and center point is filled with **`maximumTrackBackgroundColor `**.
+     And minimum track color between center point and track thumb image is filled with **`maximumTrackForegroundColor `**.
+     */
+    @IBInspectable open var maximumTrackForegroundColor: UIColor = .black {
         didSet {
             prepareMaximumTrackImage()
             setMaximumTrackImage()
         }
     }
     
+    /// The height for track.
     @IBInspectable open var trackHeight: CGFloat = 1.5 {
         didSet {
             prepareTrackImage()
@@ -46,6 +83,7 @@ open class CenterOriginSlider: UISlider {
         }
     }
     
+    /// If true, light impact feedback will occur when the value of the slider is changed to the center value.
     open var isCenterFeedbackEnabled: Bool = true
     
     override open var bounds: CGRect {
@@ -111,7 +149,7 @@ open class CenterOriginSlider: UISlider {
     
     private func prepareMaximumTrackImage() {
         maximumBackgroundImage = UIImage.filled(with: maximumTrackBackgroundColor, size: CGSize(width: (self.frame.size.width / 2 - alignmentRectInsets.right), height: trackHeight))
-        let maximumForegroundImage = UIImage.filled(with: maximumTrackForegroudColor, size: CGSize(width: 3, height: trackHeight))
+        let maximumForegroundImage = UIImage.filled(with: maximumTrackForegroundColor, size: CGSize(width: 3, height: trackHeight))
         let compositeImage = maximumForegroundImage.composite(otherImage: maximumBackgroundImage, size: CGSize(width: maximumBackgroundImage.size.width + maximumForegroundImage.size.width, height: trackHeight), position: CGPoint(x: maximumForegroundImage.size.width, y: 0))
         maximumTrackStretchableImage = compositeImage.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 1, 0, maximumBackgroundImage.size.width + 1), resizingMode: .tile)
     }
@@ -148,9 +186,9 @@ open class CenterOriginSlider: UISlider {
     
 }
 
-private extension UIImage {
+extension UIImage {
     
-    static func filled(with color: UIColor, size: CGSize) -> UIImage {
+    fileprivate static func filled(with color: UIColor, size: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
         let context = UIGraphicsGetCurrentContext()!
         context.setFillColor(color.cgColor)
@@ -160,7 +198,7 @@ private extension UIImage {
         return image
     }
     
-    func composite(otherImage: UIImage, size: CGSize, position: CGPoint) -> UIImage {
+    fileprivate func composite(otherImage: UIImage, size: CGSize, position: CGPoint) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
         let rect = CGRect(origin: .zero, size: size)
         self.draw(in: rect)
