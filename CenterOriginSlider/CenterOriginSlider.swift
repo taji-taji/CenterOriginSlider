@@ -36,7 +36,7 @@ open class CenterOriginSlider: UISlider {
      minimum track color between minimum point and center point is filled with **`minimumTrackBackgroundColor `**.
      And minimum track color between center point and track thumb image is filled with **`minimumTrackForegroundColor `**.
      */
-    @IBInspectable open var minimumTrackForegroudColor: UIColor = .black {
+    @IBInspectable open var minimumTrackForegroundColor: UIColor = .black {
         didSet {
             prepareMinimumTrackImage()
             setMinimumTrackImage()
@@ -142,7 +142,7 @@ open class CenterOriginSlider: UISlider {
     
     private func prepareMinimumTrackImage() {
         minimumBackgroundImage = UIImage.filled(with: minimumTrackBackgroundColor, size: CGSize(width: (self.frame.size.width / 2 - alignmentRectInsets.left), height: trackHeight))
-        let minimumForegroundImage = UIImage.filled(with: minimumTrackForegroudColor, size: CGSize(width: 3, height: trackHeight))
+        let minimumForegroundImage = UIImage.filled(with: minimumTrackForegroundColor, size: CGSize(width: 3, height: trackHeight))
         let compositeImage = minimumBackgroundImage.composite(otherImage: minimumForegroundImage, size: CGSize(width: minimumBackgroundImage.size.width + minimumForegroundImage.size.width, height: trackHeight), position: CGPoint(x: minimumBackgroundImage.size.width, y: 0))
         minimumTrackStretchableImage = compositeImage.resizableImage(withCapInsets: UIEdgeInsetsMake(0, minimumBackgroundImage.size.width + 1, 0, 1), resizingMode: .tile)
     }
