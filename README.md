@@ -8,7 +8,7 @@ This slider can set track color between center point and track thumb image.
 
 # Requirements
 
-- Swift4.0
+- Swift5.0
 - iOS 9.0+
 
 # Installation
