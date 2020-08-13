@@ -13,6 +13,18 @@ This slider can set track color between center point and track thumb image.
 
 # Installation
 
+## Swift Packege Manager
+
+Add the following as a dependency to your `Package.swift`:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/taji-taji/CenterOriginSlider.git", from: "0.4.0")
+]
+```
+
+or add dependencies from Xcode.
+
 ## Carthage
 
 Just add to your Cartfile:
