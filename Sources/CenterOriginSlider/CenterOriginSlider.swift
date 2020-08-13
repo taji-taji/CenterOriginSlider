@@ -99,6 +99,7 @@ open class CenterOriginSlider: UISlider {
             return nil
         }
     }()
+    private var trackBounds: CGRect { trackRect(forBounds: bounds) }
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -133,14 +134,14 @@ open class CenterOriginSlider: UISlider {
     }
     
     private func prepareMinimumTrackImage() {
-        minimumBackgroundImage = UIImage.filled(with: minimumTrackBackgroundColor, size: CGSize(width: (self.frame.size.width / 2 - alignmentRectInsets.left), height: trackHeight))
+        minimumBackgroundImage = UIImage.filled(with: minimumTrackBackgroundColor, size: CGSize(width: self.trackBounds.size.width / 2 - alignmentRectInsets.left, height: trackHeight))
         let minimumForegroundImage = UIImage.filled(with: minimumTrackForegroundColor, size: CGSize(width: 3, height: trackHeight))
         let compositeImage = minimumBackgroundImage.composite(otherImage: minimumForegroundImage, size: CGSize(width: minimumBackgroundImage.size.width + minimumForegroundImage.size.width, height: trackHeight), position: CGPoint(x: minimumBackgroundImage.size.width, y: 0))
         minimumTrackStretchableImage = compositeImage.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: minimumBackgroundImage.size.width + 1, bottom: 0, right: 1), resizingMode: .tile)
     }
     
     private func prepareMaximumTrackImage() {
-        maximumBackgroundImage = UIImage.filled(with: maximumTrackBackgroundColor, size: CGSize(width: (self.frame.size.width / 2 - alignmentRectInsets.right), height: trackHeight))
+        maximumBackgroundImage = UIImage.filled(with: maximumTrackBackgroundColor, size: CGSize(width: (self.trackBounds.size.width / 2 - alignmentRectInsets.right), height: trackHeight))
         let maximumForegroundImage = UIImage.filled(with: maximumTrackForegroundColor, size: CGSize(width: 3, height: trackHeight))
         let compositeImage = maximumForegroundImage.composite(otherImage: maximumBackgroundImage, size: CGSize(width: maximumBackgroundImage.size.width + maximumForegroundImage.size.width, height: trackHeight), position: CGPoint(x: maximumForegroundImage.size.width, y: 0))
         maximumTrackStretchableImage = compositeImage.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 1, bottom: 0, right: maximumBackgroundImage.size.width + 1), resizingMode: .tile)
